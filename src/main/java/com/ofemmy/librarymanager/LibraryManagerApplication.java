@@ -1,6 +1,7 @@
 package com.ofemmy.librarymanager;
 
 import com.ofemmy.librarymanager.models.Address;
+import com.ofemmy.librarymanager.models.Role;
 import com.ofemmy.librarymanager.models.user.User;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
@@ -15,9 +16,9 @@ public class LibraryManagerApplication implements CommandLineRunner {
 
   @Override
   public void run(String... args) throws Exception {
-    Address a = Address.of("s1","city","state","13469","London");
+    Address a = Address.of("s1", "city", "state", "13469", "London");
     User u = User.createUser("Ori", "Johnson",
-        "olabisi@gmail.com",a);
+        "olabisi@gmail.com", a, Role.LIBRARIAN);
     System.out.println(a);
     System.out.println("==================");
     System.out.println(u);
