@@ -4,11 +4,16 @@ import com.ofemmy.librarymanager.models.Address;
 import com.ofemmy.librarymanager.models.Role;
 import javax.persistence.Embedded;
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Table;
 
+@SuppressWarnings("ALL")
 @Entity
+@Table(name = "members")
 public class User {
 
   @Id
@@ -20,6 +25,7 @@ public class User {
   private Email email;
   @Embedded
   private Address address;
+  @Enumerated(value = EnumType.STRING)
   private Role role;
 
   private User(String firstName, String lastName, String email,
