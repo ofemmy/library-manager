@@ -2,9 +2,8 @@ package com.ofemmy.librarymanager.models.user;
 
 import com.ofemmy.librarymanager.models.Address;
 import com.ofemmy.librarymanager.models.Role;
-import lombok.ToString;
 
-@ToString
+
 public class User {
 
   private String firstName;
@@ -22,8 +21,24 @@ public class User {
     this.role = role;
   }
 
-  public static User createUser(String firstName, String lastName, String email,
-      Address address, Role role) {
-    return new User(firstName, lastName, email, address, role);
+  public static User createMember(String firstName, String lastName, String email,
+      Address address) {
+    return new User(firstName, lastName, email, address, Role.MEMBER);
+  }
+
+  public static User createLibrarian(String firstName, String lastName, String email,
+      Address address) {
+    return new User(firstName, lastName, email, address, Role.LIBRARIAN);
+  }
+
+  @Override
+  public String toString() {
+    return "User{" +
+        "firstName='" + firstName + '\'' +
+        ", lastName='" + lastName + '\'' +
+        ", email=" + email +
+        ", address=" + address +
+        ", role=" + role +
+        '}';
   }
 }

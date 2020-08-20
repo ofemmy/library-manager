@@ -1,8 +1,5 @@
 package com.ofemmy.librarymanager.models;
 
-import lombok.ToString;
-
-@ToString
 public class Address {
 
   private final String streetAddress;
@@ -23,5 +20,16 @@ public class Address {
   public static Address of(String streetAddress, String city, String state, String zipcode,
       String country) {
     return new Address(streetAddress, city, state, zipcode, country);
+  }
+
+  @Override
+  public String toString() {
+    return "Address{" +
+        "streetAddress='" + streetAddress + '\'' +
+        ", city='" + city + '\'' +
+        ", state='" + state + '\'' +
+        ", zipcode='" + zipcode + '\'' +
+        ", country='" + country + '\'' +
+        '}';
   }
 }

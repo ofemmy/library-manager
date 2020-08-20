@@ -1,9 +1,8 @@
 package com.ofemmy.librarymanager.models.book;
 
 import com.ofemmy.librarymanager.models.BookFormat;
-import lombok.ToString;
 
-@ToString
+
 public class Book {
 
   private final String ISBN;
@@ -30,5 +29,18 @@ public class Book {
       String language,
       int stockQty, BookFormat bookFormat) {
     return new Book(ISBN, title, publisher, numOfPages, language, stockQty, bookFormat);
+  }
+
+  @Override
+  public String toString() {
+    return "Book{" +
+        "ISBN='" + ISBN + '\'' +
+        ", title='" + title + '\'' +
+        ", publisher='" + publisher + '\'' +
+        ", numOfPages=" + numOfPages +
+        ", language='" + language + '\'' +
+        ", stockQty=" + stockQty +
+        ", bookFormat=" + bookFormat +
+        '}';
   }
 }
