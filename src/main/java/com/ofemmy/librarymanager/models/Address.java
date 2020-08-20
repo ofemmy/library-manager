@@ -1,12 +1,15 @@
 package com.ofemmy.librarymanager.models;
 
+import javax.persistence.Embeddable;
+
+@Embeddable
 public class Address {
 
-  private final String streetAddress;
-  private final String city;
-  private final String state;
-  private final String zipcode;
-  private final String country;
+  private String streetAddress;
+  private String city;
+  private String state;
+  private String zipcode;
+  private String country;
 
   private Address(String streetAddress, String city, String state, String zipcode,
       String country) {
@@ -15,6 +18,10 @@ public class Address {
     this.state = state;
     this.zipcode = zipcode;
     this.country = country;
+  }
+
+  protected Address() {
+
   }
 
   public static Address of(String streetAddress, String city, String state, String zipcode,

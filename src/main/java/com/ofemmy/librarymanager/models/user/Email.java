@@ -4,12 +4,12 @@ import static com.google.common.base.Preconditions.checkNotNull;
 
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-import lombok.ToString;
+import javax.persistence.Embeddable;
 
-@ToString
+@Embeddable
 class Email {
 
-  private final String email;
+  private String email;
   private static String regex;
   private static Pattern pattern;
 
@@ -26,8 +26,19 @@ class Email {
     this.email = email;
   }
 
+  protected Email() {
+
+  }
+
   public static Email of(String email) {
     checkNotNull(email);
     return new Email(email);
+  }
+
+  @Override
+  public String toString() {
+    return "Email{" +
+        "email='" + email + '\'' +
+        '}';
   }
 }
