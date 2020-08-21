@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layout}">
+<head>
+
+  <title>Welcome to Library Manager</title>
+</head>
+<body>
+<div layout:fragment="content">
+  <section class="my-5">
+    <div class="container">
+      <h3>Members List</h3>
+      <table class="table table-striped">
+        <thead class="thead-dark">
+        <tr>
+          <th scope="col">#</th>
+          <th scope="col">First</th>
+          <th scope="col">Last</th>
+          <th scope="col">Email</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="user:${users}">
+          <th scope="row" th:text="${user.getId()}">ID</th>
+          <td th:text="${user.getFirstName()}">Mark</td>
+          <td th:text="${user.getLastName()}">Otto</td>
+          <td th:text="${user.getEmail()}">@omd</td>
+        </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+</div>
+</body>
+</html>

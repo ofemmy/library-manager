@@ -1,6 +1,8 @@
 package com.ofemmy.librarymanager.controllers.user;
 
+import com.ofemmy.librarymanager.models.user.User;
 import com.ofemmy.librarymanager.services.user.UserService;
+import java.util.List;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -13,6 +15,14 @@ public class UserController {
 
   public UserController(UserService userService) {
     this.userService = userService;
+  }
+
+
+  @RequestMapping("")
+  public String showAllUsers(Model model) {
+    List<User> allUsers = this.userService.getAllUsers();
+    model.addAttribute("users", allUsers);
+    return "users/index";
   }
 
   @RequestMapping("/create-users")

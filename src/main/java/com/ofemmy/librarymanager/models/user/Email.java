@@ -6,6 +6,7 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import javax.persistence.Embeddable;
 
+@SuppressWarnings("All")
 @Embeddable
 class Email {
 
@@ -33,6 +34,10 @@ class Email {
   public static Email of(String email) {
     checkNotNull(email);
     return new Email(email);
+  }
+
+  public String getValue() {
+    return email;
   }
 
   @Override
