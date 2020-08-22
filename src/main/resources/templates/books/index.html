@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layout}">
+<head>
+
+  <title>Welcome to Library Manager</title>
+</head>
+<body>
+<div layout:fragment="content">
+  <section class="my-5">
+    <div class="container">
+      <h3>Books List</h3>
+      <table class="table table-striped">
+        <thead class="thead-dark">
+        <tr>
+          <th scope="col">ISBN</th>
+          <th scope="col">Title</th>
+          <th scope="col">Author</th>
+          <th scope="col">Language</th>
+          <th scope="col">Publish Year</th>
+          <th scope="col">Qty Left</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="book:${books}">
+          <th scope="row" th:text="${book.getISBN()}">ISBN</th>
+          <td th:text="${book.getTitle()}">Title</td>
+          <td th:text="${book.getAuthor()}">Author</td>
+          <td th:text="${book.getLanguage()}">Language</td>
+          <td th:text="${book.getYear().getYear()}">Year</td>
+          <td th:text="${book.getStockQty()}">Quantity</td>
+        </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+</div>
+</body>
+</html>
