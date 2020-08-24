@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layout}">
+<head>
+
+  <title>Welcome to Library Manager</title>
+</head>
+<body>
+<div layout:fragment="content">
+  <section class="my-5">
+    <div class="container">
+      <form th:action="@{/admin/save-book}" th:object="${bookForm}" method="post" novalidate>
+        <div class="form-group">
+          <label for="titleInput">Book Title</label>
+          <input type="text" id="titleInput" required class="form-control" th:field="*{title}"
+                 th:errorclass="is-invalid">
+          <span th:if="${#fields.hasErrors('title')}" th:errors="*{title}" class="invalid-feedback">Name Error</span>
+        </div>
+        <div class="form-group">
+          <label for="authorInput">Author</label>
+          <input type="text" id="authorInput" required class="form-control" th:field="*{author}"
+                 th:errorclass="is-invalid">
+          <span th:if="${#fields.hasErrors('author')}" th:errors="*{author}"
+                class="invalid-feedback">Name Error</span>
+        </div>
+        <div class="form-group">
+          <label for="publisherInput">Publisher</label>
+          <input type="text" id="publisherInput" required class="form-control"
+                 th:field="*{publisher}" th:errorclass="is-invalid">
+        </div>
+        <div class="form-group">
+          <label for="numOfPagesInput">Number of Pages</label>
+          <input type="number" id="numOfPagesInput" required class="form-control"
+                 th:field="*{numOfPages}" th:errorclass="is-invalid">
+        </div>
+        <div class="form-group">
+          <label for="languageInput">Language</label>
+          <input type="text" id="languageInput" required class="form-control"
+                 th:field="*{language}" th:errorclass="is-invalid">
+        </div>
+        <div class="form-group">
+          <label for="stockQtyInput">Stock Quantity</label>
+          <input type="number" id="stockQtyInput" required class="form-control"
+                 th:field="*{stockQty}" th:errorclass="is-invalid">
+        </div>
+        <div class="form-group">
+          <label for="dateInput">Published Year</label>
+          <input type="date" id="dateInput" required class="form-control"
+                 th:field="*{year}" th:errorclass="is-invalid">
+        </div>
+        <button class="btn btn-primary" type="submit">Create Book</button>
+      </form>
+
+    </div>
+  </section>
+</div>
+</body>
+</html>
