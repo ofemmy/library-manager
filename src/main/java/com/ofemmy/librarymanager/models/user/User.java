@@ -21,8 +21,7 @@ public class User {
   private Long id;
   private String firstName;
   private String lastName;
-  @Embedded
-  private Email email;
+  private String email;
   @Embedded
   private Address address;
   @Enumerated(value = EnumType.STRING)
@@ -32,7 +31,7 @@ public class User {
       Address address, Role role) {
     this.firstName = firstName;
     this.lastName = lastName;
-    this.email = Email.of(email);
+    this.email = email;
     this.address = address;
     this.role = role;
   }
@@ -75,6 +74,10 @@ public class User {
   }
 
   public String getEmail() {
-    return email.getValue();
+    return email;
+  }
+
+  public String getRole() {
+    return role.name();
   }
 }

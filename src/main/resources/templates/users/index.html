@@ -19,6 +19,7 @@
           <th scope="col">First</th>
           <th scope="col">Last</th>
           <th scope="col">Email</th>
+          <th scope="col">Role</th>
         </tr>
         </thead>
         <tbody>
@@ -27,6 +28,7 @@
           <td th:text="${user.getFirstName()}">Mark</td>
           <td th:text="${user.getLastName()}">Otto</td>
           <td th:text="${user.getEmail()}">@omd</td>
+          <td th:text="${user.getRole()}">@omd</td>
         </tr>
         </tbody>
       </table>

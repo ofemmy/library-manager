@@ -1,8 +1,6 @@
 package com.ofemmy.librarymanager.controllers.admin;
 
 import com.ofemmy.librarymanager.models.book.BookForm;
-import com.ofemmy.librarymanager.services.book.BookService;
-import com.ofemmy.librarymanager.services.user.UserService;
 import javax.validation.Valid;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -16,14 +14,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @RequestMapping("/admin")
 public class AdminController {
 
-  private BookService bookService;
-  private UserService userService;
-
-  public AdminController(BookService bookService,
-      UserService userService) {
-    this.bookService = bookService;
-    this.userService = userService;
-  }
 
   @GetMapping("/create-book")
   public String addBookForm(Model model) {
