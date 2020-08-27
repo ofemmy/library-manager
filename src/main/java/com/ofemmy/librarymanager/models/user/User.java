@@ -46,9 +46,9 @@ public class User {
     return new User(firstName, lastName, email, address, Role.MEMBER);
   }
 
-  public static User createLibrarian(String firstName, String lastName, String email,
+  public static User createAdmin(String firstName, String lastName, String email,
       Address address) {
-    return new User(firstName, lastName, email, address, Role.LIBRARIAN);
+    return new User(firstName, lastName, email, address, Role.ADMIN);
   }
 
   @Override
