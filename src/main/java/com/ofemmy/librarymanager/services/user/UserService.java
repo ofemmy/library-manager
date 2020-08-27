@@ -1,24 +1,24 @@
 package com.ofemmy.librarymanager.services.user;
 
-import com.ofemmy.librarymanager.models.user.User;
-import com.ofemmy.librarymanager.repositories.user.UserRepository;
+import com.ofemmy.librarymanager.models.user.UserAccount;
+import com.ofemmy.librarymanager.repositories.user.UserAccountRepository;
 import java.util.List;
 import org.springframework.stereotype.Service;
 
 @Service
 public class UserService {
 
-  private UserRepository userRepository;
+  private UserAccountRepository userAccountRepository;
 
-  public UserService(UserRepository userRepository) {
-    this.userRepository = userRepository;
+  public UserService(UserAccountRepository userAccountRepository) {
+    this.userAccountRepository = userAccountRepository;
   }
 
   public void saveUser() {
 
   }
 
-  public List<User> getAllUsers() {
-    return (List) this.userRepository.findAll();
+  public List<UserAccount> getAllUsers() {
+    return (List) this.userAccountRepository.findAll();
   }
 }

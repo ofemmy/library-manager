@@ -1,7 +1,6 @@
 package com.ofemmy.librarymanager.models.user;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Collection;
 import java.util.List;
 import org.springframework.security.core.GrantedAuthority;
@@ -15,21 +14,21 @@ public class MyUserDetails implements UserDetails {
   private boolean isActive;
   private List<GrantedAuthority> authorities = new ArrayList<>();
 
-  public MyUserDetails(User user) {
+  public MyUserDetails(UserAccount user) {
     this.userName = user.getEmail();
-    this.password = "pass";
-    this.isActive = true;
-    this.authorities.add(new SimpleGrantedAuthority(user.getRole()));
+    this.password = user.getPassword();
+    this.isActive = user.getEnabled();
+    this.authorities.add(new SimpleGrantedAuthority(user.getRole().name()));
   }
 
-  public MyUserDetails(String userName) {
+ /* public MyUserDetails(String userName) {
     this.userName = userName;
     this.password = "foo";
-  }
+  }*/
 
   @Override
   public Collection<? extends GrantedAuthority> getAuthorities() {
-    return Arrays.asList(new SimpleGrantedAuthority("ROLE_ADMIN"));
+    return this.authorities;
   }
 
   @Override
@@ -59,6 +58,6 @@ public class MyUserDetails implements UserDetails {
 
   @Override
   public boolean isEnabled() {
-    return true;
+    return this.isActive;
   }
 }

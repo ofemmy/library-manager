@@ -1,6 +1,6 @@
 package com.ofemmy.librarymanager.controllers.user;
 
-import com.ofemmy.librarymanager.models.user.User;
+import com.ofemmy.librarymanager.models.user.UserAccount;
 import com.ofemmy.librarymanager.services.user.UserService;
 import java.util.List;
 import org.springframework.stereotype.Controller;
@@ -20,7 +20,7 @@ public class UserController {
 
   @RequestMapping("")
   public String showAllUsers(Model model) {
-    List<User> allUsers = this.userService.getAllUsers();
+    List<UserAccount> allUsers = this.userService.getAllUsers();
     model.addAttribute("users", allUsers);
     return "users/index";
   }

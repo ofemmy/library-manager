@@ -3,7 +3,6 @@ package com.ofemmy.librarymanager.models.user;
 import com.ofemmy.librarymanager.models.Address;
 import com.ofemmy.librarymanager.models.Role;
 import javax.persistence.Embedded;
-import javax.persistence.Entity;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
@@ -12,7 +11,7 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 @SuppressWarnings("ALL")
-@Entity
+
 @Table(name = "members")
 public class User {
 

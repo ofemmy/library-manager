@@ -35,6 +35,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
         .antMatchers("/books/**").permitAll()
         .antMatchers("/login").permitAll()
         .antMatchers("/logout").permitAll()
+        .antMatchers("/").permitAll()
         .and().formLogin();
   }
 
