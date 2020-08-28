@@ -21,11 +21,12 @@ public class UserService {
     this.passwordEncoder = passwordEncoder;
   }
 
-  public void saveUser(UserDto userDto) {
+  public UserAccount saveUser(UserDto userDto) {
     UserAccount userAccount = UserAccount
         .createMember(userDto.getEmail(), passwordEncoder.encode(userDto.getPassword()),
             LocalDate.now(), true);
     this.userAccountRepository.save(userAccount);
+    return userAccount;
   }
 
   public List<UserAccount> getAllUsers() {
