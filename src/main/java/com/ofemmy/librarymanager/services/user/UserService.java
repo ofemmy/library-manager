@@ -26,7 +26,6 @@ public class UserService {
         .createMember(userDto.getEmail(), passwordEncoder.encode(userDto.getPassword()),
             LocalDate.now(), true);
     this.userAccountRepository.save(userAccount);
-    System.out.println("User saved to database");
   }
 
   public List<UserAccount> getAllUsers() {

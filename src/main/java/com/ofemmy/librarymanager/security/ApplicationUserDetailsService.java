@@ -17,12 +17,10 @@ public class ApplicationUserDetailsService implements UserDetailsService {
   private UserAccountRepository userAccountRepository;
 
   @Override
-  public UserDetails loadUserByUsername(String s) throws UsernameNotFoundException {
-    Optional<UserAccount> user = userAccountRepository.findUserByEmailIgnoreCase(s);
-    user.orElseThrow(() -> new UsernameNotFoundException(s + " not found"));
-
+  public UserDetails loadUserByUsername(String email) throws UsernameNotFoundException {
+    Optional<UserAccount> user = userAccountRepository.findUserByEmailIgnoreCase(email);
+    user.orElseThrow(() -> new UsernameNotFoundException(email + " not found"));
     MyUserDetails userDetails = user.map(MyUserDetails::new).get();
-    userDetails.getAuthorities().forEach(System.out::println);
     return userDetails;
   }
 }

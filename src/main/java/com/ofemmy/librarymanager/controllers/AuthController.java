@@ -38,6 +38,6 @@ public class AuthController {
     }
 
     this.userService.saveUser(userDto);
-    return "index";
+    return "users/loginForm";
   }
 }
