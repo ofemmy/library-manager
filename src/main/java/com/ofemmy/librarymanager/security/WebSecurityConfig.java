@@ -1,6 +1,5 @@
 package com.ofemmy.librarymanager.security;
 
-import com.ofemmy.librarymanager.models.Role;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.annotation.Bean;
@@ -30,12 +29,8 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
   @Override
   protected void configure(HttpSecurity http) throws Exception {
     http.authorizeRequests()
-        .antMatchers("/admin/**").hasRole(Role.ADMIN.name())
-        .antMatchers("/users/**").hasRole(Role.ADMIN.name())
-        .antMatchers("/books/**").permitAll()
-        .antMatchers("/login").permitAll()
-        .antMatchers("/logout").permitAll()
-        .antMatchers("/").permitAll()
+        .antMatchers("/register").permitAll()
+        .antMatchers("/**").permitAll()
         .and().formLogin()
         .loginPage("/login").permitAll();
   }

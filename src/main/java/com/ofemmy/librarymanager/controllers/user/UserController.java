@@ -25,10 +25,4 @@ public class UserController {
     return "users/index";
   }
 
-  @RequestMapping("/create-users")
-  private String createUsers(Model model) {
-    this.userService.saveUser();
-    model.addAttribute("message", "New users added");
-    return "demo";
-  }
 }
