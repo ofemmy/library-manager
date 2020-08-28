@@ -2,12 +2,12 @@ package com.ofemmy.librarymanager.models.user;
 
 import com.ofemmy.librarymanager.models.Role;
 import java.time.LocalDate;
-import javax.persistence.CascadeType;
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.OneToOne;
 
 @Entity
 public class UserAccount {
@@ -19,9 +19,8 @@ public class UserAccount {
   private String password;
   private LocalDate dateJoined;
   private Boolean isEnabled;
+  @Enumerated(value = EnumType.STRING)
   private Role role;
-  @OneToOne(cascade = CascadeType.ALL)
-  private UserProfile userProfile;
 
   private UserAccount(String email, String password, LocalDate dateJoined, Boolean isEnabled,
       Role role) {
@@ -64,9 +63,5 @@ public class UserAccount {
 
   public Role getRole() {
     return role;
-  }
-
-  public UserProfile getUserProfile() {
-    return userProfile;
   }
 }

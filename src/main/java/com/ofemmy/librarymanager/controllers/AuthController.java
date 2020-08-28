@@ -26,7 +26,6 @@ public class AuthController {
 
   @GetMapping("/register")
   private String getRegistrationForm(Model model) {
-    this.userService.saveUser();
     model.addAttribute("user", new UserDto());
     return "users/registerMemberForm";
   }
@@ -37,6 +36,8 @@ public class AuthController {
     if (bindingResult.hasErrors()) {
       return "users/registerMemberForm";
     }
-    return "demo";
+
+    this.userService.saveUser(userDto);
+    return "index";
   }
 }
