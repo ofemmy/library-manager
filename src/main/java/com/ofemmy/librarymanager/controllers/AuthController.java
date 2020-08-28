@@ -50,7 +50,7 @@ public class AuthController {
 
   private void loginAfterRegistration(UserAccount user) {
     Set<GrantedAuthority> authorities = Set.of(new SimpleGrantedAuthority(user.getRole().name()));
-    Authentication authentication = new UsernamePasswordAuthenticationToken(user.getEmail(),
+    Authentication authentication = new UsernamePasswordAuthenticationToken(user,
         user.getPassword(), authorities);
     SecurityContextHolder.getContext().setAuthentication(authentication);
   }

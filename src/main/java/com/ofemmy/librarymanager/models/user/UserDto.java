@@ -9,6 +9,12 @@ import javax.validation.constraints.NotNull;
 public class UserDto {
 
   @NotNull
+  @NotEmpty(message = "Firstname is required")
+  private String firstName;
+  @NotNull
+  @NotEmpty(message = "Lastname is required")
+  private String lastName;
+  @NotNull
   @NotEmpty(message = "Email cannot be empty")
   @ValidEmail
   private String email;
@@ -42,6 +48,22 @@ public class UserDto {
 
   public void setMatchingPassword(String matchingPassword) {
     this.matchingPassword = matchingPassword;
+  }
+
+  public String getFirstName() {
+    return firstName;
+  }
+
+  public String getLastName() {
+    return lastName;
+  }
+
+  public void setFirstName(String firstName) {
+    this.firstName = firstName;
+  }
+
+  public void setLastName(String lastName) {
+    this.lastName = lastName;
   }
 
   @Override

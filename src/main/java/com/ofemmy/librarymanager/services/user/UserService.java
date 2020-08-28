@@ -23,7 +23,8 @@ public class UserService {
 
   public UserAccount saveUser(UserDto userDto) {
     UserAccount userAccount = UserAccount
-        .createMember(userDto.getEmail(), passwordEncoder.encode(userDto.getPassword()),
+        .createMember(userDto.getFirstName(), userDto.getLastName(), userDto.getEmail(),
+            passwordEncoder.encode(userDto.getPassword()),
             LocalDate.now(), true);
     this.userAccountRepository.save(userAccount);
     return userAccount;

@@ -8,13 +8,17 @@ import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Table;
 
 @Entity
+@Table(name = "users")
 public class UserAccount {
 
   @Id
   @GeneratedValue(strategy = GenerationType.AUTO)
   private Long id;
+  private String firstName;
+  private String lastName;
   private String email;
   private String password;
   private LocalDate dateJoined;
@@ -22,8 +26,11 @@ public class UserAccount {
   @Enumerated(value = EnumType.STRING)
   private Role role;
 
-  private UserAccount(String email, String password, LocalDate dateJoined, Boolean isEnabled,
+  private UserAccount(String firstName, String lastName, String email, String password,
+      LocalDate dateJoined, Boolean isEnabled,
       Role role) {
+    this.firstName = firstName;
+    this.lastName = lastName;
     this.email = email;
     this.password = password;
     this.dateJoined = dateJoined;
@@ -35,14 +42,17 @@ public class UserAccount {
 
   }
 
-  public static UserAccount createMember(String email, String password, LocalDate dateJoined,
+  public static UserAccount createMember(String firstName, String lastName, String email,
+      String password, LocalDate dateJoined,
       Boolean isEnabled) {
-    return new UserAccount(email, password, dateJoined, isEnabled, Role.MEMBER);
+    return new UserAccount(firstName, lastName, email, password, dateJoined, isEnabled,
+        Role.MEMBER);
   }
 
-  public static UserAccount createAdmin(String email, String password, LocalDate dateJoined,
+  public static UserAccount createAdmin(String firstName, String lastName, String email,
+      String password, LocalDate dateJoined,
       Boolean isEnabled) {
-    return new UserAccount(email, password, dateJoined, isEnabled, Role.ADMIN);
+    return new UserAccount(firstName, lastName, email, password, dateJoined, isEnabled, Role.ADMIN);
   }
 
   public String getEmail() {
