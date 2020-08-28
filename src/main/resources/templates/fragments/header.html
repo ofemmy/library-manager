@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body th:alt="hi">
+<nav th:fragment="header" class="navbar navbar-expand-md navbar-dark bg-dark">
+  <div class="container">
+    <a href="/" class="navbar-brand">Library Manager</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false"
+            aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="navbar-collapse collapse" id="navbarNavDropdown">
+      <ul class="navbar-nav ml-auto">
+        <li class="nav-item">
+          <a href="/" th:href="@{/}" class="nav-link active">Home</a>
+        </li>
+        <li class="nav-item">
+          <a href="/" class="nav-link">Browse</a>
+        </li>
+        <li class="nav-item">
+          <a href="/" class="nav-link">My Account</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+</body>
+</html>
