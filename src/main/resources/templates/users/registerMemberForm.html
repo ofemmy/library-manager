@@ -16,7 +16,7 @@
 <div layout:fragment="content">
 
   <div class="card mx-auto" style="max-width: 50rem">
-    <div class="card-header text-center"><h3>Sign up</h3></div>
+    <div class="card-header text-center"><h3>Register</h3></div>
     <form method="post" th:object="${user}" th:action="@{/register}"
           class="py-4 px-3">
       <div class="alert alert-danger" th:if="${#fields.hasErrors('global')}" th:errors="*{global}">
