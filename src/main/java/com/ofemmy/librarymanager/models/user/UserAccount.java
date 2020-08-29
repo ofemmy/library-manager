@@ -74,4 +74,12 @@ public class UserAccount {
   public Role getRole() {
     return role;
   }
+
+  public String getFirstName() {
+    return firstName;
+  }
+
+  public String getLastName() {
+    return lastName;
+  }
 }

@@ -1,5 +1,6 @@
 package com.ofemmy.librarymanager.controllers;
 
+import com.ofemmy.librarymanager.models.exceptions.UserAlreadyExistException;
 import com.ofemmy.librarymanager.models.user.UserAccount;
 import com.ofemmy.librarymanager.models.user.UserDto;
 import com.ofemmy.librarymanager.services.user.UserService;
@@ -39,11 +40,17 @@ public class AuthController {
 
   @PostMapping("/register")
   public String register(@ModelAttribute("user") @Valid UserDto userDto,
-      BindingResult bindingResult) {
+      BindingResult bindingResult, Model model) {
     if (bindingResult.hasErrors()) {
       return "users/registerMemberForm";
     }
-    UserAccount user = this.userService.saveUser(userDto);
+    UserAccount user = null;
+    try {
+      user = this.userService.registerNewUserAccount(userDto);
+    } catch (UserAlreadyExistException e) {
+      model.addAttribute("errorMessage", e.getMessage());
+      return "users/registerMemberForm";
+    }
     loginAfterRegistration(user);
     return "index";
   }
