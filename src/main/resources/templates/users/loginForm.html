@@ -9,29 +9,27 @@
 </head>
 <body>
 <div layout:fragment="content">
-  <section class="my-5">
-    <div class="container">
-      <h1>Login</h1>
-      <form th:action="@{/login}" method="post">
-        <div class="form-group">
-          <label for="emailInput">Email address</label>
-          <input type="email" class="form-control" id="emailInput"
-                 aria-describedby="emailHelp" placeholder="Enter email" name="username">
-        </div>
-        <div class="form-group">
-          <label for="passwordInput">Password</label>
-          <input type="password" class="form-control" id="passwordInput"
-                 placeholder="Password" name="password">
-        </div>
-        <div>
-          <small>New User? <a th:href="@{/register}">Sign up</a></small>
-        </div>
 
-        <button type="submit" class="btn btn-dark">Login</button>
-      </form>
+  <div class="card mx-auto" style="max-width: 35rem">
+    <div class="card-header text-center"><h3>Login</h3></div>
+    <form th:action="@{/login}" method="post" class="py-4 px-3">
+      <div class="form-group mb-3">
+        <label for="emailInput">Email address</label>
+        <input type="email" class="form-control" id="emailInput"
+               aria-describedby="emailHelp" placeholder="Enter email" name="username">
+      </div>
+      <div class="form-group mb-3">
+        <label for="passwordInput">Password</label>
+        <input type="password" class="form-control" id="passwordInput"
+               placeholder="Password" name="password">
+      </div>
+      <button type="submit" class="btn btn-dark btn-block">Login</button>
 
+    </form>
+    <div class="card-footer">
+      <small>New User? <a th:href="@{/register}">Sign up</a></small>
     </div>
-  </section>
+  </div>
 </div>
 </body>
 </html>
